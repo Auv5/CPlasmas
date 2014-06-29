@@ -75,7 +75,9 @@
     <ClInclude Include="Base.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Engine.h" />
+    <ClInclude Include="EventSystem.h" />
     <ClInclude Include="Graphics.h" />
+    <ClInclude Include="Key.h" />
     <ClInclude Include="SDLEventsSystem.h" />
     <ClInclude Include="SDLGraphics.h" />
     <ClInclude Include="SDLWindow.h" />
@@ -89,6 +91,7 @@
     <ClInclude Include="_Selector.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="EventSystem.cpp" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="SDLEventsSystem.cpp" />
     <ClCompile Include="SDLGraphics.cpp" />

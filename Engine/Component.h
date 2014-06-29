@@ -1,6 +1,8 @@
 #ifndef COMPONENT_H_
 #define COMPONENT_H_
 
+enum Key;
+
 namespace Engine
 {
 	class Entity;
@@ -8,32 +10,24 @@ namespace Engine
 
 using Engine::Entity;
 
-class EXPORT GraphicalComponent
+namespace Engine
 {
-public:
-	GraphicalComponent();
-	virtual ~GraphicalComponent() {}
-	
-	virtual void DrawComponent(Entity* e) = 0;
-};
+	class EXPORT Component
+	{
+	public:
+		Component(Entity *e) : owner(e) {}
+		virtual ~Component() {}
 
-class EXPORT LogicalComponent
-{
-public:
-	LogicalComponent();
-	virtual ~LogicalComponent() {}
+		// Events sent to 'logicals'
+		virtual void Update() {}
+		virtual void HandleKey(Key *k) {}
 
-	virtual void UpdateComponent(Entity* e) = 0;
-};
+		// Sent to 'graphicals'
+		virtual void Draw(Window *win) {}
 
-class EXPORT HybridComponent : public GraphicalComponent, public LogicalComponent
-{ 
-public:
-	HybridComponent();
-	virtual ~HybridComponent() {}
-
-	virtual void UpdateComponent(Entity *e) = 0;
-	virtual void DrawComponent(Entity *e) = 0;
+	private:
+		Entity *owner;
+	};
 };
 
 #endif
