@@ -65,8 +65,6 @@ void SDLWindow::Initialize()
 	SDL_SetRenderDrawColor(write_to, fill.r, fill.g, fill.b, fill.a);
 	SDL_RenderClear(write_to);
 	SDL_RenderPresent(write_to);
-
-	// ... Continue SDL window initialization to the point where we can write to it in the DrawSprites method.
 }
 
 bool SDLWindow::IsFullscreen() 
