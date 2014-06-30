@@ -4,11 +4,13 @@
 #include "Base.h"
 #include "SDLWindow.h"
 #include "SubSystem.h"
+#include "EventSystem.h"
 
 using Engine::SDLGraphics;
 using Engine::Window;
 using Engine::SDLWindow;
 using Engine::SubSystem;
+using Engine::EventSystem;
 
 SDLGraphics::SDLGraphics() : 
 initialized(false)
@@ -27,7 +29,10 @@ char *SDLGraphics::GetIdentifier()
 
 void SDLGraphics::Init() 
 {
-	SDL_Init(SDL_INIT_VIDEO);
+	assert((SDL_Init(SDL_INIT_VIDEO) == 0), SDL_GetError());
+	// We'll let the system find out which input system to use...
+	this->AddSubSystem(EventSystem::Get());
+
 	initialized = true;
 }
 
@@ -35,7 +40,7 @@ void SDLGraphics::Start()
 {
 	assert(default_window, "No default window was created. Cannot Start.");
 
-	while (running) {
+	while (!quit) {
 		for (std::pair<char *, SubSystem *> pair : subsystems) {
 			pair.second->Update();
 		}
@@ -44,9 +49,11 @@ void SDLGraphics::Start()
 			w->Update();
 		}
 	}
+
+	SDL_Quit();
 }
 
-Window *SDLGraphics::NewWindow(Rect& size, char *title, bool fullscreen)
+Window *SDLGraphics::NewWindow(const Rect& size, char *title, bool fullscreen)
 {
 	assert(initialized, "Did not initialize graphics before creating a new window.");
 
@@ -61,7 +68,7 @@ Window *SDLGraphics::NewWindow(Rect& size, char *title, bool fullscreen)
 	return ret;
 }
 
-Window *SDLGraphics::NewWindow(float x, float y, char *title, bool fullscreen)
+Window *SDLGraphics::NewWindow(double x, double y, char *title, bool fullscreen)
 {
 	Rect size;
 	size.w = x;

@@ -2,6 +2,7 @@
 #include "_Selector.h"
 
 using Engine::EventSystem;
+using Engine::Component;
 
 EventSystem::EventSystem()
 {
@@ -20,4 +21,16 @@ EventSystem *EventSystem::Get()
 	else {
 		return instance = SelectEvents();
 	}
+}
+
+EventSystem *EventSystem::instance = 0;
+
+void EventSystem::AddKeyHandler(Component *comp)
+{
+	key_handlers.push_back(comp);
+}
+
+void EventSystem::AddMouseHandler(Component *comp)
+{
+	key_handlers.push_back(comp);
 }

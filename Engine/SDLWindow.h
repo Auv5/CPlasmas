@@ -15,7 +15,7 @@ namespace Engine
 	class SDLWindow : public Engine::Window
 	{
 	public:
-		SDLWindow(Rect& size, char *title, bool fullscreen);
+		SDLWindow(const Rect& size, char *title, bool fullscreen);
 		virtual ~SDLWindow();
 		virtual void AddEntity(Entity *sprt, unsigned int z_index);
 		virtual const Rect &GetPosition();

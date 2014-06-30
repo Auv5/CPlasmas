@@ -2,11 +2,14 @@
 #define EVENT_SYSTEM_H_
 
 #include "SubSystem.h"
-
 #include "Key.h"
+
+#include <vector>
 
 namespace Engine
 {
+	class Component;
+
 	class EventSystem : public SubSystem
 	{
 	public:
@@ -24,6 +27,10 @@ namespace Engine
 		void AddMouseHandler(Component *handler);
 
 		static EventSystem *Get();
+
+	protected:
+		std::vector<Component*> key_handlers;
+		std::vector<Component*> mouse_handlers;
 
 	private:
 		static EventSystem *instance;

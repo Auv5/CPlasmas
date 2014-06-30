@@ -4,6 +4,8 @@
 #include "_BaseTypes.h"
 #include "_ExportUtil.h"
 
+extern struct Rect EXPORT USE_CURRENT_RESOLUTION;
+
 namespace Engine
 {
 	class Entity;
@@ -23,6 +25,8 @@ namespace Engine
 		virtual char *GetTitle() = 0;
 		virtual void Update() = 0;
 		virtual void SetBasicFillColor(ColorComp r, ColorComp g, ColorComp b, ColorComp a = 255) = 0;
+
+		static const Rect USE_CURRENT_RESOLUTION;
 
 	protected:
 		Window();

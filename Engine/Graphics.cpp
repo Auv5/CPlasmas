@@ -21,4 +21,9 @@ Graphics::~Graphics()
 {
 }
 
+void Graphics::RequestQuit()
+{
+	quit = true;
+}
+
 Graphics *Graphics::graphics = 0;

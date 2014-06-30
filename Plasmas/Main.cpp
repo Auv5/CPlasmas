@@ -9,16 +9,11 @@ int main(int argc, char **argv)
 {
 	Graphics *gfx = Graphics::Get();
 
-	Rect rect;
+	gfx->Init();
 
-	rect.w = 200;
-	rect.h = 200;
-
-	gfx->NewWindow(rect, "Title", false);
+	Window *main_win = gfx->NewWindow(Window::USE_CURRENT_RESOLUTION, "Title", true);
 
 	gfx->Start();
-
-	std::cin.get();
 	
 	return 0;
 }

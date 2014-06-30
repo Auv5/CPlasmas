@@ -11,9 +11,13 @@ namespace Engine
 		SDLEventsSystem();
 		~SDLEventsSystem();
 
-		virtual char *GetIdentifier();
+		virtual char *GetName();
+		virtual void Init();
+		virtual void Update();
 
-
+	private:
+		Keymod mod_map;
+		SDL_Event current_event;
 	};
 };
 

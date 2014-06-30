@@ -1,5 +1,6 @@
 #include "SDLWindow.h"
 #include "_BaseTypes.h"
+#include "_Errors.h"
 #include "Entity.h"
 
 #include <SDL.h>
@@ -8,7 +9,7 @@ using Engine::SDLWindow;
 using Engine::Entity;
 
 // Note: start can be any Rect if fullscreen = true
-SDLWindow::SDLWindow(Rect& start, char *title, bool fullscreen) : 
+SDLWindow::SDLWindow(const Rect& start, char *title, bool fullscreen) : 
 entities(3)
 {
 	// Copies the size vector...
@@ -30,12 +31,27 @@ SDLWindow::~SDLWindow()
 	}
 }
 
+const int DISPLAY_NUMBER = 0;
+
 void SDLWindow::Initialize()
 {
+	assert(((start_location.w > 0 && start_location.h > 0) || start_location.w == start_location.h), 
+		"If a special resolution modifier is to be used, then both length and width must be equal.");
+
+	if (start_location == USE_CURRENT_RESOLUTION)
+	{
+		SDL_DisplayMode display_mode;
+
+		assert((SDL_GetCurrentDisplayMode(DISPLAY_NUMBER, &display_mode) == 0), SDL_GetError());
+
+		start_location.w = (double)display_mode.w;
+		start_location.h = (double)display_mode.h;
+	}
+
 	if (fullscreen)
 	{
 		SDL_CreateWindowAndRenderer(0, 0,
-			(SDL_WINDOW_FULLSCREEN | SDL_WINDOW_BORDERLESS),
+			(SDL_WINDOW_FULLSCREEN_DESKTOP | SDL_WINDOW_BORDERLESS),
 			&window, &write_to);
 		// Scale so the user's code doesn't know the difference.
 		SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");  // make the scaled rendering look smoother.
@@ -77,8 +93,8 @@ const Vec2D &SDLWindow::GetSize()
 	int w, h;
 	SDL_GetWindowSize(window, &w, &h);
 
-	size.x = (float)w;
-	size.y = (float)h;
+	size.x = (double)w;
+	size.y = (double)h;
 
 	return size;
 }
@@ -89,10 +105,10 @@ const Rect &SDLWindow::GetPosition()
 	SDL_GetWindowPosition(window, &x, &y);
 	SDL_GetWindowSize(window, &w, &h);
 
-	position.x = (float)x;
-	position.y = (float)y;
-	position.w = (float)w;
-	position.h = (float)h;
+	position.x = (double)x;
+	position.y = (double)y;
+	position.w = (double)w;
+	position.h = (double)h;
 	return this->start_location;
 }
 

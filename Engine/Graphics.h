@@ -21,16 +21,19 @@ namespace Engine
 		virtual void Init() = 0;
 		virtual void Start() = 0;
 
-		virtual Window *NewWindow(Rect& size, char *title, bool fullscreen) = 0;
-		virtual Window *NewWindow(float x, float y, char *title, bool fullscreen) = 0;
+		virtual Window *NewWindow(const Rect& size, char *title, bool fullscreen) = 0;
+		virtual Window *NewWindow(double x, double y, char *title, bool fullscreen) = 0;
 
 		virtual void AddSubSystem(SubSystem *system) = 0;
 
 		virtual Window *GetDefaultWindow() = 0;
 
+		void RequestQuit();
+
 	protected:
 		Graphics();
 		virtual ~Graphics();
+		bool quit;
 
 	private:
 		static Graphics *graphics;

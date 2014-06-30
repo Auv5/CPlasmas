@@ -21,8 +21,8 @@ namespace Engine {
 		virtual char *GetIdentifier();
 		virtual void Init();
 
-		virtual Window *NewWindow(Rect& size, char *title, bool fullscreen);
-		virtual Window *NewWindow(float x, float y, char *title, bool fullscreen);
+		virtual Window *NewWindow(const Rect& size, char *title, bool fullscreen);
+		virtual Window *NewWindow(double x, double y, char *title, bool fullscreen);
 
 		virtual void AddSubSystem(SubSystem *system);
 
@@ -32,7 +32,6 @@ namespace Engine {
 
 	private:
 		bool initialized;
-		bool running;
 		Window *default_window;
 
 		std::vector<Window *> windows;

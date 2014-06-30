@@ -18,7 +18,7 @@ struct EXPORT Rect
 		h(0)
 	{ }
 
-	Rect(float x, float y, float w, float h) :
+	Rect(double x, double y, double w, double h) :
 		x(x),
 		y(y),
 		w(w),
@@ -28,10 +28,10 @@ struct EXPORT Rect
 	// Platform specific constructors for conversion from platform-specific format...
 #ifdef SDL2
 	Rect(SDL_Rect &r) :
-		x((float)(r.x)),
-		y((float)(r.y)),
-		w((float)(r.w)),
-		h((float)(r.h))
+		x((double)(r.x)),
+		y((double)(r.y)),
+		w((double)(r.w)),
+		h((double)(r.h))
 	{ }
 
 	SDL_Rect ToSDL()
@@ -49,8 +49,9 @@ struct EXPORT Rect
 #else
 #error No recognized graphics subsystem defined.
 #endif
-	float x, y;
-	float w, h;
+
+	double x, y;
+	double w, h;
 };
 
 #ifdef SDL2
@@ -66,7 +67,18 @@ struct EXPORT Color
 
 struct EXPORT Vec2D 
 {
-	float x, y;
+	double x, y;
 };
 
+inline bool operator==(const Rect &left, const Rect &right)
+{
+	if (left.x == right.x && left.y == right.y)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
 #endif

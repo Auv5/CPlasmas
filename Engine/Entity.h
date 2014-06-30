@@ -11,11 +11,11 @@ namespace Engine {
 	class EXPORT Entity : Component
 	{
 	public:
-		Entity(Vec2D position);
-		Entity(int x, int y);
+		Entity(Vec2D& position);
+		Entity(double x, double y);
 
 		virtual ~Entity();
-		const Rect &GetPosition();
+		const Vec2D &GetPosition();
 
 		void DrawEntity(Window *win);
 		void UpdateEntity();
@@ -23,11 +23,16 @@ namespace Engine {
 		virtual void Draw(Window *win) = 0;
 		virtual void Update() = 0;
 
+		void AddLogicalComponent(Component *comp);
+		void AddGraphicalComponent(Component *comp);
+
 	private:
-		Rect position;
+		Vec2D position;
 
 		std::vector<Component*> *graphicals;
 		std::vector<Component*> *logicals;
+
+		void InitializeEntity();
 	};
 };
 
