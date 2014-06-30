@@ -2,9 +2,13 @@
 #define EXPORT_UTIL_H_
 
 #ifdef _WIN32
-#define EXPORT __declspec(dllexport)
+#if defined(ENGAPI_EXPORT)
+#define ENGAPI __declspec(dllexport)
 #else
-#error Unsupported system...
+#define ENGAPI __declspec(dllimport)
+#endif
+#else
+#error Unsupported operating system...
 #endif
 
 #endif

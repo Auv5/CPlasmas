@@ -8,13 +8,8 @@ namespace Engine
 {
 	class Entity;
 	class Window;
-};
 
-using Engine::Entity;
-
-namespace Engine
-{
-	class EXPORT Component
+	class ENGAPI Component
 	{
 	public:
 		Component(Entity *e) : owner(e) {}
@@ -31,6 +26,6 @@ namespace Engine
 	protected:
 		Entity *owner;
 	};
-};
+}
 
 #endif

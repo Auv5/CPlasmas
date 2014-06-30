@@ -9,7 +9,7 @@
 
 #define GfxRound(n) ((int)n)
 
-struct EXPORT Rect 
+struct ENGAPI Rect 
 {
 	Rect() :
 		x(0),
@@ -60,12 +60,12 @@ typedef Uint8 ColorComp;
 #error No graphics framework defined.
 #endif
 
-struct EXPORT Color
+struct ENGAPI Color
 {
 	ColorComp r, g, b, a;
 };
 
-struct EXPORT Vec2D 
+struct ENGAPI Vec2D 
 {
 	double x, y;
 };

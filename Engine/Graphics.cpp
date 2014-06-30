@@ -1,29 +1,30 @@
 #include "Graphics.h"
 #include "_Selector.h"
 
-using Engine::Graphics;
-
-Graphics::Graphics()
+namespace Engine
 {
-}
-
-Graphics *Graphics::Get() 
-{
-	if (graphics) {
-		return graphics;
+	Graphics::Graphics()
+	{
 	}
-	else {
-		return graphics = SelectGfx();
+
+	Graphics *Graphics::Get()
+	{
+		if (graphics) {
+			return graphics;
+		}
+		else {
+			return graphics = SelectGfx();
+		}
 	}
-}
 
-Graphics::~Graphics()
-{
-}
+	Graphics::~Graphics()
+	{
+	}
 
-void Graphics::RequestQuit()
-{
-	quit = true;
-}
+	void Graphics::RequestQuit()
+	{
+		quit = true;
+	}
 
-Graphics *Graphics::graphics = 0;
+	Graphics *Graphics::graphics = 0;
+}

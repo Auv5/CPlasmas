@@ -1,7 +1,7 @@
 #include "_ExportUtil.h"
 
-void EXPORT _smell(const char *message, int line, char *file, char *function);
-void EXPORT _assert(const char *message, int line, char *file, char *function);
+void ENGAPI _smell(const char *message, int line, char *file, char *function);
+void ENGAPI _assert(const char *message, int line, char *file, char *function);
 
 #ifndef __func__
 #define __func__ __FUNCTION__

@@ -3,23 +3,22 @@
 #include "Entity.h"
 #include "Window.h"
 
-using Engine::ImageDraw;
-using Engine::Component;
-using Engine::Window;
-
-ImageDraw::ImageDraw(Entity *owner, char *file) :
-Component(owner),
-resource_name(file)
+namespace Engine
 {
-	owner->AddGraphicalComponent(this);
-	// TODO initialize the image object
-}
+	ImageDraw::ImageDraw(Entity *owner, char *file) :
+		Component(owner),
+		resource_name(file)
+	{
+		owner->AddGraphicalComponent(this);
+		// TODO initialize the image object
+	}
 
-void ImageDraw::Draw(Window *win)
-{
-	// Draw the image object to the screen
-}
+	void ImageDraw::Draw(Window *win)
+	{
+		// Draw the image object to the screen
+	}
 
-ImageDraw::~ImageDraw()
-{
+	ImageDraw::~ImageDraw()
+	{
+	}
 }

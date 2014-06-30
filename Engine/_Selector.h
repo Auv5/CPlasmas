@@ -7,6 +7,7 @@ namespace Engine {
 	// class Sound;
 	// class FileManager;
 };
+
 Engine::Graphics *SelectGfx();
 
 Engine::EventSystem *SelectEvents();

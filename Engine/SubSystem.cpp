@@ -1,12 +1,13 @@
 #include "SubSystem.h"
 
-using Engine::SubSystem;
-
-SubSystem::SubSystem()
+namespace Engine
 {
-}
+	SubSystem::SubSystem()
+	{
+	}
 
 
-SubSystem::~SubSystem()
-{
+	SubSystem::~SubSystem()
+	{
+	}
 }

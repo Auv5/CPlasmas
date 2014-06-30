@@ -11,7 +11,7 @@ namespace Engine
 	class Window;
 	class SubSystem;
 
-	class EXPORT Graphics
+	class ENGAPI Graphics
 	{
 	public:
 		static Graphics *Get();
@@ -38,6 +38,6 @@ namespace Engine
 	private:
 		static Graphics *graphics;
 	};
-};
+}
 
 #endif

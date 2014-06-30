@@ -4,8 +4,6 @@
 #include "_BaseTypes.h"
 #include "_ExportUtil.h"
 
-extern struct Rect EXPORT USE_CURRENT_RESOLUTION;
-
 namespace Engine
 {
 	class Entity;
@@ -15,7 +13,7 @@ using Engine::Entity;
 
 namespace Engine
 {
-	class EXPORT Window
+	class ENGAPI Window
 	{
 	public:
 		virtual void AddEntity(Entity *sprt, unsigned int z_index) = 0;
@@ -32,5 +30,5 @@ namespace Engine
 		Window();
 		virtual ~Window();
 	};
-};
+}
 #endif

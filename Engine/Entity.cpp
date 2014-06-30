@@ -3,41 +3,62 @@
 #include "Base.h"
 #include "Component.h"
 
-using Engine::Entity;
-using Engine::Component;
-
-Entity::Entity(Vec2D& postn) :
-Component(this),
-position(postn)
+namespace Engine
 {
-	InitializeEntity();
-}
+	Entity::Entity(Vec2D& postn) :
+		Component(this),
+		position(postn)
+	{
+		InitializeEntity();
 
-Entity::Entity(double x, double y) : 
-Component(this)
-{
-	position.x = x;
-	position.y = y;
+		this->AddGraphicalComponent(this);
+		this->AddLogicalComponent(this);
+	}
 
-	InitializeEntity();
-}
+	Entity::Entity(double x, double y) :
+		Component(this)
+	{
+		position.x = x;
+		position.y = y;
 
-void Entity::InitializeEntity()
-{
-	graphicals = new std::vector<Component*>();
-	logicals = new std::vector<Component*>();
-}
+		InitializeEntity();
+	}
 
-void Entity::AddGraphicalComponent(Component *comp)
-{
-	graphicals->push_back(comp);
-}
+	void Entity::InitializeEntity()
+	{
+		graphicals = new std::vector<Component*>();
+		logicals = new std::vector<Component*>();
+	}
 
-void Entity::AddLogicalComponent(Component *comp)
-{
-	logicals->push_back(comp);
-}
+	void Entity::AddGraphicalComponent(Component *comp)
+	{
+		graphicals->push_back(comp);
+	}
 
-Entity::~Entity()
-{
+	void Entity::AddLogicalComponent(Component *comp)
+	{
+		logicals->push_back(comp);
+	}
+
+	void Entity::Draw(Window *win) {}
+
+	void Entity::Update() {}
+
+	void Entity::DrawEntity(Window *win)
+	{
+		for (Component *c : *graphicals) {
+			c->Draw(win);
+		}
+	}
+
+	void Entity::UpdateEntity()
+	{
+		for (Component *c : *logicals) {
+			c->Update();
+		}
+	}
+
+	Entity::~Entity()
+	{
+	}
 }

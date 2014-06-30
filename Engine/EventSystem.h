@@ -35,6 +35,6 @@ namespace Engine
 	private:
 		static EventSystem *instance;
 	};
-};
+}
 
 #endif

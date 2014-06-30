@@ -22,6 +22,6 @@ namespace Engine
 	private:
 		char *resource_name;
 	};
-};
+}
 
 #endif

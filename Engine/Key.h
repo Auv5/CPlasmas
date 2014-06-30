@@ -6,7 +6,7 @@
 /*
  * This allows us to thinly wrap the SDL input library.
  */
-typedef enum
+enum Key
 {
 	KEY_UNKNOWN = SDLK_UNKNOWN,
 
@@ -259,12 +259,12 @@ typedef enum
 	KEY_KBDILLUMUP = SDLK_KBDILLUMUP,
 	KEY_EJECT = SDLK_EJECT,
 	KEY_SLEEP = SDLK_SLEEP
-} Key;
+};
 
 /**
 * \brief Enumeration of valid key mods (possibly OR'd together).
 */
-typedef enum
+enum Keymod
 {
 	MOD_NONE = KMOD_NONE,
 	MOD_LSHIFT = KMOD_LSHIFT,
@@ -279,7 +279,7 @@ typedef enum
 	MOD_CAPS = KMOD_CAPS,
 	MOD_MODE = KMOD_MODE,
 	MOD_RESERVED = KMOD_RESERVED
-} Keymod;
+};
 
 #define MOD_CTRL   KMOD_CTRL
 #define MOD_SHIFT  KMOD_SHIFT

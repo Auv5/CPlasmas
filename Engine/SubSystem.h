@@ -14,6 +14,6 @@ namespace Engine
 
 		virtual char *GetName() = 0;
 	};
-};
+}
 
 #endif

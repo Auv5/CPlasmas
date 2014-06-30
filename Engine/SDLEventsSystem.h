@@ -19,6 +19,6 @@ namespace Engine
 		Keymod mod_map;
 		SDL_Event current_event;
 	};
-};
+}
 
 #endif

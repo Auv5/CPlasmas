@@ -8,7 +8,7 @@
 #include <vector>
 
 namespace Engine {
-	class EXPORT Entity : Component
+	class ENGAPI Entity : public Component
 	{
 	public:
 		Entity(Vec2D& position);
@@ -20,8 +20,8 @@ namespace Engine {
 		void DrawEntity(Window *win);
 		void UpdateEntity();
 
-		virtual void Draw(Window *win) = 0;
-		virtual void Update() = 0;
+		virtual void Draw(Window *win);
+		virtual void Update();
 
 		void AddLogicalComponent(Component *comp);
 		void AddGraphicalComponent(Component *comp);
@@ -34,6 +34,6 @@ namespace Engine {
 
 		void InitializeEntity();
 	};
-};
+}
 
 #endif

@@ -8,11 +8,9 @@
 
 #include <vector>
 
-using Engine::Window;
-
 namespace Engine
 {
-	class SDLWindow : public Engine::Window
+	class SDLWindow : public Window
 	{
 	public:
 		SDLWindow(const Rect& size, char *title, bool fullscreen);
@@ -42,6 +40,6 @@ namespace Engine
 
 		std::vector< std::vector<Entity*> > entities;
 	};
-};
+}
 
 #endif

@@ -1,36 +1,36 @@
 #include "EventSystem.h"
 #include "_Selector.h"
 
-using Engine::EventSystem;
-using Engine::Component;
-
-EventSystem::EventSystem()
+namespace Engine
 {
-}
-
-
-EventSystem::~EventSystem()
-{
-}
-
-EventSystem *EventSystem::Get()
-{
-	if (instance) {
-		return instance;
+	EventSystem::EventSystem()
+	{
 	}
-	else {
-		return instance = SelectEvents();
+
+
+	EventSystem::~EventSystem()
+	{
 	}
-}
 
-EventSystem *EventSystem::instance = 0;
+	EventSystem *EventSystem::Get()
+	{
+		if (instance) {
+			return instance;
+		}
+		else {
+			return instance = SelectEvents();
+		}
+	}
 
-void EventSystem::AddKeyHandler(Component *comp)
-{
-	key_handlers.push_back(comp);
-}
+	EventSystem *EventSystem::instance = 0;
 
-void EventSystem::AddMouseHandler(Component *comp)
-{
-	key_handlers.push_back(comp);
+	void EventSystem::AddKeyHandler(Component *comp)
+	{
+		key_handlers.push_back(comp);
+	}
+
+	void EventSystem::AddMouseHandler(Component *comp)
+	{
+		key_handlers.push_back(comp);
+	}
 }
