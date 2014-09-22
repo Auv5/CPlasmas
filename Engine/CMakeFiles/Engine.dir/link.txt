@@ -1,0 +1,2 @@
+/usr/bin/ar cr libEngine.a  CMakeFiles/Engine.dir/src/Entity.cpp.o CMakeFiles/Engine.dir/src/Image.cpp.o CMakeFiles/Engine.dir/src/SDLGraphics.cpp.o CMakeFiles/Engine.dir/src/Window.cpp.o CMakeFiles/Engine.dir/src/EventSystem.cpp.o CMakeFiles/Engine.dir/src/ImageDraw.cpp.o CMakeFiles/Engine.dir/src/SDLWindow.cpp.o CMakeFiles/Engine.dir/src/_Errors.cpp.o CMakeFiles/Engine.dir/src/Graphics.cpp.o CMakeFiles/Engine.dir/src/SDLEventsSystem.cpp.o CMakeFiles/Engine.dir/src/SubSystem.cpp.o CMakeFiles/Engine.dir/src/_Selector.cpp.o
+/usr/bin/ranlib libEngine.a

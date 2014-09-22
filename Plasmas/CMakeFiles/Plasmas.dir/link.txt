@@ -1,0 +1,1 @@
+/usr/bin/c++       CMakeFiles/Plasmas.dir/src/Main.cpp.o CMakeFiles/Plasmas.dir/src/BoxEntity.cpp.o  -o Plasmas -rdynamic ../Engine/libEngine.a /usr/local/lib/libSDL2main.a /usr/local/lib/libSDL2.so -lpthread -Wl,-rpath,/usr/local/lib 
