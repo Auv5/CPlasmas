@@ -4,6 +4,7 @@
 #include "Entity.h"
 
 #include <SDL.h>
+#include <iostream>
 
 namespace Engine
 {
@@ -130,6 +131,7 @@ namespace Engine
 
 	void SDLWindow::Update()
 	{
+		std::cout << "Drawing window" << std::endl;
 		// Perform logic update (by z-index)
 		for (std::vector<Entity*> v : entities)
 		{
