@@ -5,23 +5,25 @@
 
 namespace Engine
 {
-	class Window;
-	class Entity;
+    class Window;
+    class Entity;
+    class Image;
 };
 
 namespace Engine
 {
-	class ImageDraw :
-		public Engine::Component
-	{
-	public:
-		ImageDraw(Entity *owner, char *file);
-		virtual ~ImageDraw();
-		virtual void Draw(Window *win);
+    class ImageDraw :
+        public Engine::Component
+    {
+    public:
+        ImageDraw(Entity *owner, char *file);
+        virtual ~ImageDraw();
+        virtual void Draw(Window *win);
 
-	private:
-		char *resource_name;
-	};
+    private:
+        char *resource_name;
+        Image *img;
+    };
 }
 
 #endif

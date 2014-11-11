@@ -1,0 +1,8 @@
+-/build
+-/CMake
+-/CMakeLists.txt
+-/.git*
+-/.projectile
+-CMakeFiles
+-cmake_install.cmake
+-CMakeCache.txt

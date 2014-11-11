@@ -4,18 +4,22 @@
 
 #include "SDLGraphics.h"
 
-using Engine::Graphics;
-
 Engine::Graphics *SelectGfx()
 {
-	return new Engine::SDLGraphics;
+    return new Engine::SDLGraphics;
 }
 
 #include "SDLEventsSystem.h"
 
 Engine::EventSystem *SelectEvents()
 {
-	return new Engine::SDLEventsSystem;
+    return new Engine::SDLEventsSystem;
+}
+
+#include "SDLImage.h"
+Engine::Image *SelectImg(char *filename)
+{
+    return new Engine::SDLImage(filename);
 }
 
 // Add elif directives here if we want other gfx systems

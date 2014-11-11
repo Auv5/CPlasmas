@@ -5,20 +5,20 @@
 
 namespace Engine
 {
-	class SDLEventsSystem : public EventSystem
-	{
-	public:
-		SDLEventsSystem();
-		~SDLEventsSystem();
+    class SDLEventsSystem : public EventSystem
+    {
+    public:
+        SDLEventsSystem();
+        ~SDLEventsSystem();
 
-		virtual const char *GetName();
-		virtual void Init();
-		virtual void Update();
+        virtual const char *GetName();
+        virtual void Init();
+        virtual void Update();
 
-	private:
-		Keymod mod_map;
-		SDL_Event current_event;
-	};
+    private:
+        Keymod mod_map;
+        SDL_Event current_event;
+    };
 }
 
 #endif

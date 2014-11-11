@@ -8,37 +8,37 @@
 struct Vec2D;
 
 namespace Engine {
-	class Window;
-	class SubSystem;
+    class Window;
+    class SubSystem;
 
-	class SDLGraphics :
-		public Graphics
-	{
-	public:
-		SDLGraphics();
-		~SDLGraphics();
+    class SDLGraphics :
+        public Graphics
+    {
+    public:
+        SDLGraphics();
+        ~SDLGraphics();
 
-		virtual const char *GetIdentifier();
-		virtual void Init();
+        virtual const char *GetIdentifier();
+        virtual void Init();
 
-		virtual Window *NewWindow(const Rect& size, const char *title, bool fullscreen);
-		virtual Window *NewWindow(double x, double y, const char *title, bool fullscreen);
+        virtual Window *NewWindow(const Rect& size, const char *title, bool fullscreen);
+        virtual Window *NewWindow(double x, double y, const char *title, bool fullscreen);
 
-		virtual void AddSubSystem(SubSystem *system);
+        virtual void AddSubSystem(SubSystem *system);
 
-		virtual void Start();
+        virtual void Start();
 
-		virtual Window *GetDefaultWindow();
+        virtual Window *GetDefaultWindow();
 
-	private:
-		bool initialized;
-		Window *default_window;
+    private:
+        bool initialized;
+        Window *default_window;
 
-		std::vector<Window *> windows;
-		std::map<const char *, SubSystem *> subsystems;
+        std::vector<Window *> windows;
+        std::map<const char *, SubSystem *> subsystems;
 
-    const static char *identifier;
-	};
+        const static char *identifier;
+    };
 }
 
 #endif

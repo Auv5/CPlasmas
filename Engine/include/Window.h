@@ -6,31 +6,34 @@
 
 namespace Engine
 {
-	class Entity;
-  class Image;
+    class Entity;
+    class Image;
 };
 
 using Engine::Entity;
 
 namespace Engine
 {
-	class ENGAPI Window
-	{
-	public:
-		virtual void AddEntity(Entity *sprt, unsigned int z_index) = 0;
-    virtual Image *GetImage(char *filename) = 0;
-		virtual const Rect &GetPosition() = 0;
-		virtual const Vec2D &GetSize() = 0;
-		virtual bool IsFullscreen() = 0;
-		virtual char *GetTitle() = 0;
-		virtual void Update() = 0;
-		virtual void SetBasicFillColor(ColorComp r, ColorComp g, ColorComp b, ColorComp a = 255) = 0;
+    class ENGAPI Window
+    {
+    public:
+        virtual void AddEntity(Entity *sprt, unsigned int z_index) = 0;
+        virtual const Rect &GetPosition() = 0;
+        virtual const Vec2D &GetSize() = 0;
+        virtual bool IsFullscreen() = 0;
+        virtual char *GetTitle() = 0;
+        virtual void Update() = 0;
+        virtual void SetBasicFillColor(ColorComp r, ColorComp g, ColorComp b, ColorComp a = 255) = 0;
+        virtual void SetBasicFillColor(Color &fill) = 0;
 
-		static const Rect USE_CURRENT_RESOLUTION;
+        // Drawing functions
+        virtual void DrawImage(Image *img, const Rect &location) = 0;
 
-	protected:
-		Window();
-		virtual ~Window();
-	};
+        static const Rect USE_CURRENT_RESOLUTION;
+
+    protected:
+        Window();
+        virtual ~Window();
+    };
 }
 #endif

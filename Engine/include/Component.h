@@ -6,26 +6,26 @@
 
 namespace Engine
 {
-	class Entity;
-	class Window;
+    class Entity;
+    class Window;
 
-	class ENGAPI Component
-	{
-	public:
-		Component(Entity *e) : owner(e) {}
-		virtual ~Component() {}
+    class ENGAPI Component
+    {
+    public:
+    Component(Entity *e) : owner(e) {}
+        virtual ~Component() {}
 
-		// Events sent to 'logicals'
-		virtual void Update() {}
-		virtual void KeyDown(Key k) {}
-		virtual void KeyUp(Key k) {}
+        // Events sent to 'logicals'
+        virtual void Update() {}
+        virtual void KeyDown(Key k) {}
+        virtual void KeyUp(Key k) {}
 
-		// Sent to 'graphicals'
-		virtual void Draw(Window *win) {}
+        // Sent to 'graphicals'
+        virtual void Draw(Window *win) {}
 
-	protected:
-		Entity *owner;
-	};
+    protected:
+        Entity *owner;
+    };
 }
 
 #endif

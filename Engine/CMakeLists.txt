@@ -16,7 +16,8 @@ set (Engine_SRCS
     ${PROJECT_SOURCE_DIR}/Graphics.cpp
     ${PROJECT_SOURCE_DIR}/SDLEventsSystem.cpp
     ${PROJECT_SOURCE_DIR}/SubSystem.cpp
-    ${PROJECT_SOURCE_DIR}/_Selector.cpp)
+    ${PROJECT_SOURCE_DIR}/_Selector.cpp
+    ${PROJECT_SOURCE_DIR}/SDLImage.cpp)
 
 add_library (${PROJECT_NAME} STATIC ${Engine_SRCS})
 

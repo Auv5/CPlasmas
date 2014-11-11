@@ -1,68 +1,29 @@
-# Locate the SDL2_image library. This CMake module is a modified version
-# of the original FindSDL_image.cmake file
-# ###########################################################################
-# Locate SDL_image library
-# This module defines
-# SDL2IMAGE_LIBRARY, the name of the library to link against
-# SDLIMAGE_FOUND, if false, do not try to link to SDL
-# SDL2IMAGE_INCLUDE_DIR, where to find SDL/SDL.h
-#
-# $SDLDIR is an environment variable that would
-# correspond to the ./configure --prefix=$SDLDIR
-# used in building SDL.
-#
-# Created by Eric Wing. This was influenced by the FindSDL.cmake 
-# module, but with modifications to recognize OS X frameworks and 
-# additional Unix paths (FreeBSD, etc).
+## Locate the SDL2_image library
+# - Try to find SDL2_image
+# Once done this will define
+#  SDL2_image_FOUND - System has SDL2_image
+#  SDL2_image_INCLUDE_DIRS - The SDL2_image include directories
+#  SDL2_image_LIBRARIES - The libraries needed to use SDL2_image
+#  SDL2_image_DEFINITIONS - Compiler switches required for using SDL2_image
 
-#=============================================================================
-# Copyright 2005-2009 Kitware, Inc.
-#
-# Distributed under the OSI-approved BSD License (the "License");
-# see accompanying file Copyright.txt for details.
-#
-# This software is distributed WITHOUT ANY WARRANTY; without even the
-# implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-# See the License for more information.
-#=============================================================================
-# (To distributed this file outside of CMake, substitute the full
-#  License text for the above reference.)
+find_package(PkgConfig)
+pkg_check_modules(PC_LIBSDL2IMAGE QUIET libSDL2_image-2.0)
+set(LIBSDL2_image_DEFINITIONS ${PC_LIBSDL2IMAGE_CFLAGS_OTHER})
 
-FIND_PATH(SDL2IMAGE_INCLUDE_DIR SDL_image.h
-  HINTS
-  $ENV{SDL2IMAGEDIR}
-  $ENV{SDL2DIR}
-  PATH_SUFFIXES include
-  PATHS
-  ~/Library/Frameworks
-  /Library/Frameworks
-  /usr/local/include/SDL2
-  /usr/include/SDL2
-  /sw/include/SDL2 # Fink
-  /opt/local/include/SDL2 # DarwinPorts
-  /opt/csw/include/SDL2 # Blastwave
-  /opt/include/SDL2
-)
+find_path(SDL2_image_INCLUDE_DIR SDL2/SDL_image.h
+          HINTS ${PC_LIBSDL2IMAGE_INCLUDEDIR} ${PC_LIBSDL2IMAGE_INCLUDE_DIRS}
+          PATH_SUFFIXES libSDL2_image )
 
-FIND_LIBRARY(SDL2IMAGE_LIBRARY 
-  NAMES SDL2_image
-  HINTS
-  $ENV{SDL2IMAGEDIR}
-  $ENV{SDL2DIR}
-  PATH_SUFFIXES lib64 lib
-  PATHS
-  ~/Library/Frameworks
-  /Library/Frameworks
-  /usr/local
-  /usr
-  /sw
-  /opt/local
-  /opt/csw
-  /opt
-)
+find_library(SDL2_image_LIBRARY NAMES SDL2_image libSDL2_image
+             HINTS ${PC_LIBSDL2IMAGE_LIBDIR} ${PC_LIBSDL2IMAGE_LIBRARY_DIRS} )
 
-SET(SDL2IMAGE_FOUND "NO")
-IF(SDL2IMAGE_LIBRARY AND SDL2IMAGE_INCLUDE_DIR)
-  SET(SDL2IMAGE_FOUND "YES")
-ENDIF(SDL2IMAGE_LIBRARY AND SDL2IMAGE_INCLUDE_DIR)
+set(SDL2_image_LIBRARIES ${SDL2_image_LIBRARY} )
+set(SDL2_image_INCLUDE_DIRS ${SDL2_image_INCLUDE_DIR} )
 
+include(FindPackageHandleStandardArgs)
+# handle the QUIETLY and REQUIRED arguments and set SDL2_image_FOUND to TRUE
+# if all listed variables are TRUE
+find_package_handle_standard_args(SDL2_image  DEFAULT_MSG
+                                  SDL2_image_LIBRARY SDL2_image_INCLUDE_DIR)
+
+mark_as_advanced(SDL2_image_INCLUDE_DIR SDL2_image_LIBRARY )

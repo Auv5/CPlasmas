@@ -2,12 +2,12 @@
 
 namespace Engine
 {
-	SubSystem::SubSystem()
-	{
-	}
+    SubSystem::SubSystem()
+    {
+    }
 
 
-	SubSystem::~SubSystem()
-	{
-	}
+    SubSystem::~SubSystem()
+    {
+    }
 }

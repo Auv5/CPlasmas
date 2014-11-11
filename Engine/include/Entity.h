@@ -8,32 +8,33 @@
 #include <vector>
 
 namespace Engine {
-	class ENGAPI Entity : public Component
-	{
-	public:
-		Entity(Vec2D& position);
-		Entity(double x, double y);
+    class ENGAPI Entity : public Component
+    {
+    public:
+        Entity(Vec2D& position);
+        Entity(double x, double y);
 
-		virtual ~Entity();
-		const Vec2D &GetPosition();
+        virtual ~Entity();
 
-		void DrawEntity(Window *win);
-		void UpdateEntity();
+        void DrawEntity(Window *win);
+        void UpdateEntity();
 
-		virtual void Draw(Window *win);
-		virtual void Update();
+        virtual void Draw(Window *win);
+        virtual void Update();
 
-		void AddLogicalComponent(Component *comp);
-		void AddGraphicalComponent(Component *comp);
+        void AddLogicalComponent(Component *comp);
+        void AddGraphicalComponent(Component *comp);
 
-	private:
-		Vec2D position;
+        Vec2D &GetPosition();
 
-		std::vector<Component*> *graphicals;
-		std::vector<Component*> *logicals;
+    private:
+        Vec2D position;
 
-		void InitializeEntity();
-	};
+        std::vector<Component*> *graphicals;
+        std::vector<Component*> *logicals;
+
+        void InitializeEntity();
+    };
 }
 
 #endif

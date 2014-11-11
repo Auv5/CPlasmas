@@ -2,8 +2,10 @@
 #include "_BaseTypes.h"
 #include "_Errors.h"
 #include "Entity.h"
+#include "Image.h"
 
 #include <SDL.h>
+#include <iostream>
 
 namespace Engine
 {
@@ -130,6 +132,7 @@ namespace Engine
 
 	void SDLWindow::Update()
 	{
+		std::cout << "Drawing window" << std::endl;
 		// Perform logic update (by z-index)
 		for (std::vector<Entity*> v : entities)
 		{
@@ -152,4 +155,5 @@ namespace Engine
 		SDL_RenderClear(write_to);
 		SDL_RenderPresent(write_to);
 	}
+>>>>>>> b8e663b01b12a92499c6eb3db72fd9cce11a701c
 }
