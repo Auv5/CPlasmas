@@ -25,7 +25,8 @@ add_library (${PROJECT_NAME} STATIC ${Engine_SRCS})
 
 add_definitions(
   -std=c++11
-  -DSDL2)
+  -DSDL2
+  -DENGAPI_EXPORT)
 
 include_directories (${PROJECT_INCLUDE_DIR})
 
