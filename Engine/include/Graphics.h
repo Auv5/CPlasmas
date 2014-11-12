@@ -1,8 +1,7 @@
 #ifndef GRAPHICS_H_
 #define GRAPHICS_H_
 
-#include "_ExportUtil.h"
-#include "_BaseTypes.h"
+#include "Base.h"
 
 struct Vec2D;
 

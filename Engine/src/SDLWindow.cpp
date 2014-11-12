@@ -1,11 +1,8 @@
 #include "SDLWindow.h"
 #include "SDLImage.h"
-#include "_BaseTypes.h"
-#include "_Errors.h"
+#include "Base.h"
 #include "Entity.h"
 #include "Image.h"
-
-#include <SDL.h>
 #include <iostream>
 
 namespace Engine

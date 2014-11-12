@@ -2,8 +2,6 @@
 #include "SDLGraphics.h"
 #include "Base.h"
 
-#include <SDL2/SDL_image.h>
-
 namespace Engine
 {
     SDLImage::SDLImage(char *filename)

@@ -5,8 +5,6 @@
 #include "SubSystem.h"
 #include "EventSystem.h"
 
-#include <SDL.h>
-
 #include <cstring>
 #include <cstdlib>
 

@@ -1,10 +1,6 @@
 #ifndef BASE_TYPES_H_
 #define BASE_TYPES_H_
 
-#ifdef SDL2
-#include <SDL.h>
-#endif
-
 #include "_ExportUtil.h"
 
 #define GfxRound(n) ((int)n)

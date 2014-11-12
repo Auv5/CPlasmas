@@ -2,9 +2,7 @@
 #define SDL_WINDOW_H_
 
 #include "Window.h"
-#include "_BaseTypes.h"
-
-#include <SDL.h>
+#include "Base.h"
 
 #include <vector>
 

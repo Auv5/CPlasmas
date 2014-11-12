@@ -1,8 +1,7 @@
 #ifndef WINDOW_H_
 #define WINDOW_H_
 
-#include "_BaseTypes.h"
-#include "_ExportUtil.h"
+#include "Base.h"
 
 namespace Engine
 {

@@ -1,7 +1,7 @@
 #ifndef KEY_H_
 #define KEY_H_
 #ifdef SDL2
-#include <SDL.h>
+#include "Base.h"
 
 /*
  * This allows us to thinly wrap the SDL input library.

@@ -1,7 +1,7 @@
 #ifndef ENTITY_H_
 #define ENTITY_H_
 
-#include "_BaseTypes.h"
+#include "Base.h"
 #include "Window.h"
 #include "Component.h"
 
