@@ -36,5 +36,20 @@ namespace Engine
         SDL_RenderCopy(rend, this->cached_texture, NULL, where.ToSDL());
     }
 
+    const Vec2D *SDLImage::GetSize()
+    {
+        return new Vec2D(this->surface->w, this->surface->h);
+    }
+
+    int SDLImage::GetWidth()
+    {
+        return this->surface->w;
+    }
+
+    int SDLImage::GetHeight()
+    {
+        return this->surface->h;
+    }
+
     bool SDLImage::initialized = false;
 }

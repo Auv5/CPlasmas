@@ -77,7 +77,7 @@ struct ENGAPI Vec2D
 public:
     double x, y;
 
-    Rect *ToRect(double w, double h) {
+    const Rect *ToRect(double w, double h) const {
         if (!cache_rect) {
             cache_rect = new Rect(x, y, w, h);
         }
@@ -88,6 +88,16 @@ public:
         return cache_rect;
     }
 
+    Vec2D() {
+        this->x = 0;
+        this->y = 0;
+    }
+
+    Vec2D(double x, double y) {
+        this->x = x;
+        this->y = y;
+    }
+    
     ~Vec2D() {
         if (cache_rect) {
             delete cache_rect;
@@ -95,7 +105,8 @@ public:
     }
 
 private:
-    Rect *cache_rect;
+    // Mutable because it's simple for caching
+    mutable Rect *cache_rect;
 };
 
 inline bool operator==(const Rect &left, const Rect &right)

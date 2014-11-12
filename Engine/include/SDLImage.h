@@ -14,8 +14,13 @@ namespace Engine
     {
     public:
         SDLImage(char *filename);
+        ~SDLImage();
 
         void DrawTo(SDL_Renderer *rend, const Rect &where);
+
+        virtual const Vec2D *GetSize();
+        virtual int GetWidth();
+        virtual int GetHeight();
 
     private:
         SDL_Texture *cached_texture;

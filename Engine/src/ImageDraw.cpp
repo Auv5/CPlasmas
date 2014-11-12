@@ -16,8 +16,9 @@ namespace Engine
 
     void ImageDraw::Draw(Window *win)
     {
+        const Rect *newRect = owner->GetPosition().ToRect(this->img->GetWidth(), this->img->GetHeight());
         // Draw the image object to the screen
-        win->DrawImage(this->img, owner->GetPosition().ToRect(this->img->w, this->img->h));
+        win->DrawImage(this->img, *newRect);
     }
 
     ImageDraw::~ImageDraw()

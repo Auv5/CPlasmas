@@ -5,10 +5,11 @@
 namespace Engine
 {
     Entity::Entity(Vec2D& postn) :
-        Component(this),
-        position(postn)
+        Component(this)
     {
         InitializeEntity();
+
+        position = &(*(&postn));
 
         this->AddGraphicalComponent(this);
         this->AddLogicalComponent(this);
@@ -17,8 +18,7 @@ namespace Engine
     Entity::Entity(double x, double y) :
         Component(this)
     {
-        position.x = x;
-        position.y = y;
+        position = new Vec2D(x, y);
 
         InitializeEntity();
     }
@@ -57,8 +57,9 @@ namespace Engine
         }
     }
 
-    Vec2D &Entity::GetPosition() {
-        return this->position;
+    Vec2D &Entity::GetPosition()
+    {
+        return *(this->position);
     }
 
     Entity::~Entity()

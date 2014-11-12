@@ -28,7 +28,7 @@ namespace Engine {
         Vec2D &GetPosition();
 
     private:
-        Vec2D position;
+        Vec2D *position;
 
         std::vector<Component*> *graphicals;
         std::vector<Component*> *logicals;

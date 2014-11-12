@@ -9,7 +9,7 @@
 #include <vector>
 
 namespace Engine
-{ 
+{
     class SDLWindow : public Window
     {
     public:
