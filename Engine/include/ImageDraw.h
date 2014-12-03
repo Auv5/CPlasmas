@@ -16,12 +16,12 @@ namespace Engine
         public Engine::Component
     {
     public:
-        ImageDraw(Entity *owner, char *file);
+        ImageDraw(Entity *owner, const char *file);
         virtual ~ImageDraw();
         virtual void Draw(Window *win);
 
     private:
-        char *resource_name;
+        const char *resource_name;
         Image *img;
     };
 }

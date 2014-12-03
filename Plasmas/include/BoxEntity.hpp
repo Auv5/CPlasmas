@@ -1,7 +1,7 @@
 #ifndef BOX_H_
 #define BOX_H_
 
-#include "Entity.h"
+#include "Engine.h"
 
 class BoxEntity :
 	public Engine::Entity
@@ -9,6 +9,10 @@ class BoxEntity :
 public:
 	BoxEntity();
 	virtual ~BoxEntity();
+
+        virtual void Draw(Engine::Window *win);
+private:
+        Color *color;
 };
 
 #endif

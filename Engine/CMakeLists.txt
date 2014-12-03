@@ -7,23 +7,24 @@ set (PROJECT_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
 set (Engine_SRCS
     ${PROJECT_SOURCE_DIR}/Entity.cpp
     ${PROJECT_SOURCE_DIR}/Image.cpp
-    ${PROJECT_SOURCE_DIR}/SDLGraphics.cpp
+    ${PROJECT_SOURCE_DIR}/SDL/SDLGraphics.cpp
     ${PROJECT_SOURCE_DIR}/Window.cpp
     ${PROJECT_SOURCE_DIR}/EventSystem.cpp
     ${PROJECT_SOURCE_DIR}/ImageDraw.cpp
-    ${PROJECT_SOURCE_DIR}/SDLWindow.cpp
+    ${PROJECT_SOURCE_DIR}/SDL/SDLWindow.cpp
     ${PROJECT_SOURCE_DIR}/_Errors.cpp
     ${PROJECT_SOURCE_DIR}/Graphics.cpp
-    ${PROJECT_SOURCE_DIR}/SDLEventsSystem.cpp
+    ${PROJECT_SOURCE_DIR}/SDL/SDLEventsSystem.cpp
     ${PROJECT_SOURCE_DIR}/SubSystem.cpp
     ${PROJECT_SOURCE_DIR}/_Selector.cpp
-    ${PROJECT_SOURCE_DIR}/SDLImage.cpp)
+    ${PROJECT_SOURCE_DIR}/SDL/SDLImage.cpp)
 
 add_library (${PROJECT_NAME} STATIC ${Engine_SRCS})
 
 
 
 add_definitions(
+  -g
   -std=c++11
   -DSDL2
   -DENGAPI_EXPORT)

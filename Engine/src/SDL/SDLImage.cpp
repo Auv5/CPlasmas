@@ -1,10 +1,10 @@
-#include "SDLImage.h"
-#include "SDLGraphics.h"
+#include "SDL/SDLImage.h"
+#include "SDL/SDLGraphics.h"
 #include "Base.h"
 
 namespace Engine
 {
-    SDLImage::SDLImage(char *filename)
+    SDLImage::SDLImage(const char *filename)
     {
         if (!initialized) {
             // Currently we support only two types of image, JPG and PNG (in addition to BMP natively supported by SDL)
@@ -29,7 +29,7 @@ namespace Engine
             cached_texture = SDL_CreateTextureFromSurface(rend, this->surface);
             assoc_renderer = rend;
         }
-		
+
         // Currently we don't support source rects
         SDL_RenderCopy(rend, this->cached_texture, NULL, where.ToSDL());
     }

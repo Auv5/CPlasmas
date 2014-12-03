@@ -2,22 +2,22 @@
 
 #ifdef SDL2
 
-#include "SDLGraphics.h"
+#include "SDL/SDLGraphics.h"
 
 Engine::Graphics *SelectGfx()
 {
     return new Engine::SDLGraphics;
 }
 
-#include "SDLEventsSystem.h"
+#include "SDL/SDLEventsSystem.h"
 
 Engine::EventSystem *SelectEvents()
 {
     return new Engine::SDLEventsSystem;
 }
 
-#include "SDLImage.h"
-Engine::Image *SelectImg(char *filename)
+#include "SDL/SDLImage.h"
+Engine::Image *SelectImg(const char *filename)
 {
     return new Engine::SDLImage(filename);
 }

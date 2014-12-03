@@ -13,7 +13,7 @@ Engine::Graphics *SelectGfx();
 
 Engine::EventSystem *SelectEvents();
 
-Engine::Image *SelectImg(char *filename);
+Engine::Image *SelectImg(const char *filename);
 
 // Engine::Sound *SelectSound();
 

@@ -6,11 +6,14 @@ set (PROJECT_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 set (Plasmas_SRCS
   ${PROJECT_SOURCE_DIR}/Main.cpp
-  ${PROJECT_SOURCE_DIR}/BoxEntity.cpp)
+  ${PROJECT_SOURCE_DIR}/BoxEntity.cpp
+  ${PROJECT_SOURCE_DIR}/StrawberryEntity.cpp)
 
 add_executable (${PROJECT_NAME} ${Plasmas_SRCS})
 
 add_definitions(
+  # Temporary for debugging purposes
+  -g
   -std=c++11
   -DSDL2)
 

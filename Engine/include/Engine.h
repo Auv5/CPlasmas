@@ -3,6 +3,7 @@
 
 #include "Graphics.h"
 #include "Entity.h"
+#include "Image.h"
 //#include "Sound.h"
 //#include "Files.h"
 

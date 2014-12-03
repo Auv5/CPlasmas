@@ -48,6 +48,8 @@ namespace Engine
         for (Component *c : *graphicals) {
             c->Draw(win);
         }
+
+        this->Draw(win);
     }
 
     void Entity::UpdateEntity()
@@ -55,6 +57,8 @@ namespace Engine
         for (Component *c : *logicals) {
             c->Update();
         }
+
+        this->Update();
     }
 
     Vec2D &Entity::GetPosition()

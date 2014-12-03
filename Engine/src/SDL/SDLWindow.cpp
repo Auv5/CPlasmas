@@ -1,9 +1,10 @@
-#include "SDLWindow.h"
-#include "SDLImage.h"
+#include "SDL/SDLWindow.h"
+#include "SDL/SDLImage.h"
 #include "Base.h"
 #include "Entity.h"
 #include "Image.h"
 #include <iostream>
+#include <cmath>
 
 namespace Engine
 {
@@ -122,13 +123,59 @@ namespace Engine
         this->fill = fill;
     }
 
-    void SDLWindow::DrawImage(Image *image, const Rect &location) {
+    void SDLWindow::DrawImage(Image *image, const Rect &location)
+    {
         ((SDLImage*)image)->DrawTo(this->write_to, location);
+    }
+
+    void SDLWindow::PushColor(Color *c)
+    {
+        if (c) {
+            SDL_SetRenderDrawColor(this->write_to, c->r, c->g, c->b, c->a);
+        }
+        else {
+            // This is also the background color (by default) so they should probably pass in a color
+            SDL_SetRenderDrawColor(this->write_to, fill.r, fill.g, fill.b, fill.a);
+        }
+    }
+
+    void SDLWindow::PopColor()
+    {
+        // This is also the background color (by default) so they should probably pass in a color
+        SDL_SetRenderDrawColor(this->write_to, fill.r, fill.g, fill.b, fill.a);
+    }
+
+    void SDLWindow::DrawRect(const Rect &rect, bool fill_rect)
+    {
+        SDL_Rect *t_rect = rect.ToSDL();
+
+        SDL_RenderDrawRect(this->write_to, t_rect);
+        
+        if (fill_rect) {
+            SDL_RenderFillRect(this->write_to, t_rect);
+        }
+
+        delete t_rect;
+    }
+
+    void SDLWindow::DrawEllipse(const Rect &rect)
+    {
+        // This is how often points will be drawn
+        const static double granularity = 0.001;
+        // We roll our own ellipse...
+        double angle = 0;
+        int x = rect.x, y = rect.y, w = rect.w, h = rect.h;
+        while (angle <= M_PI*2) {
+            SDL_RenderDrawPoint(this->write_to, x + (w*cos(angle)), y + (h*sin(angle)));
+            angle += granularity;
+        }
     }
 
     void SDLWindow::Update()
     {
-        std::cout << "Drawing window" << std::endl;
+        SDL_SetRenderDrawColor(write_to, fill.r, fill.g, fill.b, fill.a);
+        SDL_RenderClear(write_to);
+        
         // Perform logic update (by z-index)
         for (std::vector<Entity*> v : entities)
         {
@@ -147,8 +194,6 @@ namespace Engine
             }
         }
 
-        SDL_SetRenderDrawColor(write_to, fill.r, fill.g, fill.b, fill.a);
-        SDL_RenderClear(write_to);
         SDL_RenderPresent(write_to);
     }
 }

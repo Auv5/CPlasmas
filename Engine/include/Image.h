@@ -10,7 +10,7 @@ namespace Engine
     public:
         Image();
         virtual ~Image();
-        static Image *Get(char *filename);
+        static Image *Get(const char *filename);
 
         virtual const Vec2D *GetSize() = 0;
         virtual int GetWidth() = 0;

@@ -1,7 +1,7 @@
-#include "SDLGraphics.h"
+#include "SDL/SDLGraphics.h"
 
 #include "Base.h"
-#include "SDLWindow.h"
+#include "SDL/SDLWindow.h"
 #include "SubSystem.h"
 #include "EventSystem.h"
 
@@ -39,6 +39,7 @@ namespace Engine
         assert(default_window, "No default window was created. Cannot Start.");
 
         while (!quit) {
+            // Give all the subsystems a chance to update...
             for (std::pair<const char *, SubSystem *> pair : subsystems) {
                 pair.second->Update();
             }

@@ -57,7 +57,7 @@ typedef Uint8 ColorComp;
 
 struct ENGAPI Color
 {
-    Color(int r, int g, int b, int a)
+    Color(int r, int g, int b, int a=255)
     {
         this->r = r;
         this->g = g;
@@ -74,7 +74,7 @@ public:
     double x, y;
 
     const Rect *ToRect(double w, double h) const {
-        if (!cache_rect) {
+        if (!cache_rect || cache_rect->x != this->x || cache_rect->y != this->y) {
             cache_rect = new Rect(x, y, w, h);
         }
 
@@ -101,8 +101,8 @@ public:
     }
 
 private:
-    // Mutable because it's simple for caching
-    mutable Rect *cache_rect;
+    // Mutable because it's simply for caching
+    mutable Rect *cache_rect = 0;
 };
 
 inline bool operator==(const Rect &left, const Rect &right)

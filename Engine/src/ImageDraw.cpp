@@ -6,7 +6,7 @@
 
 namespace Engine
 {
-    ImageDraw::ImageDraw(Entity *owner, char *file) :
+    ImageDraw::ImageDraw(Entity *owner, const char *file) :
         Component(owner),
         resource_name(file)
     {

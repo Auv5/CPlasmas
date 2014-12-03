@@ -12,7 +12,7 @@ namespace Engine
     {
     }
 
-    Image *Image::Get(char *filename)
+    Image *Image::Get(const char *filename)
     {
         return SelectImg(filename);
     }

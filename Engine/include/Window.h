@@ -27,6 +27,11 @@ namespace Engine
 
         // Drawing functions
         virtual void DrawImage(Image *img, const Rect &location) = 0;
+        virtual void DrawRect(const Rect &location, bool fill_rect=false) = 0;
+        virtual void DrawEllipse(const Rect &location) = 0;
+
+        virtual void PushColor(Color *c) = 0;
+        virtual void PopColor() = 0;
 
         static const Rect USE_CURRENT_RESOLUTION;
 

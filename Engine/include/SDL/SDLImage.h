@@ -13,7 +13,7 @@ namespace Engine
     class SDLImage : public Image
     {
     public:
-        SDLImage(char *filename);
+        SDLImage(const char *filename);
         ~SDLImage();
 
         void DrawTo(SDL_Renderer *rend, const Rect &where);
