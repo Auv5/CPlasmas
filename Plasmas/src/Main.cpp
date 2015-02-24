@@ -2,8 +2,6 @@
 #include "BoxEntity.hpp"
 #include "StrawberryEntity.hpp"
 
-#include <iostream>
-
 using namespace Engine;
 
 int main(int argc, char **argv)
