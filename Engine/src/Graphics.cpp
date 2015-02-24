@@ -3,7 +3,8 @@
 
 namespace Engine
 {
-	Graphics::Graphics()
+	Graphics::Graphics() : 
+		quit(false)
 	{
 	}
 

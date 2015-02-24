@@ -9,4 +9,8 @@
 
 #include "Base.h"
 
+// Hack for when we are running on Windows. 
+// TODO: Figure out why this works.
+#undef main
+
 #endif
