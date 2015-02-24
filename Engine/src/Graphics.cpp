@@ -3,28 +3,28 @@
 
 namespace Engine
 {
-    Graphics::Graphics()
-    {
-    }
+	Graphics::Graphics()
+	{
+	}
 
-    Graphics *Graphics::Get()
-    {
-        if (graphics) {
-            return graphics;
-        }
-        else {
-            return graphics = SelectGfx();
-        }
-    }
+	Graphics *Graphics::Get()
+	{
+		if (graphics) {
+			return graphics;
+		}
+		else {
+			return graphics = SelectGfx();
+		}
+	}
 
-    Graphics::~Graphics()
-    {
-    }
+	Graphics::~Graphics()
+	{
+	}
 
-    void Graphics::RequestQuit()
-    {
-        quit = true;
-    }
+	void Graphics::RequestQuit()
+	{
+		quit = true;
+	}
 
-    Graphics *Graphics::graphics = 0;
+	Graphics *Graphics::graphics = 0;
 }

@@ -6,20 +6,20 @@
 
 Engine::Graphics *SelectGfx()
 {
-    return new Engine::SDLGraphics;
+	return new Engine::SDLGraphics;
 }
 
 #include "SDL/SDLEventsSystem.h"
 
 Engine::EventSystem *SelectEvents()
 {
-    return new Engine::SDLEventsSystem;
+	return new Engine::SDLEventsSystem;
 }
 
 #include "SDL/SDLImage.h"
 Engine::Image *SelectImg(const char *filename)
 {
-    return new Engine::SDLImage(filename);
+	return new Engine::SDLImage(filename);
 }
 
 // Add elif directives here if we want other gfx systems

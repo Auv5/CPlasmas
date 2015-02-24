@@ -3,17 +3,17 @@
 
 namespace Engine
 {
-    Image::Image()
-    {
-    }
+	Image::Image()
+	{
+	}
 
 
-    Image::~Image()
-    {
-    }
+	Image::~Image()
+	{
+	}
 
-    Image *Image::Get(const char *filename)
-    {
-        return SelectImg(filename);
-    }
+	Image *Image::Get(const char *filename)
+	{
+		return SelectImg(filename);
+	}
 }

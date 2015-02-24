@@ -4,50 +4,50 @@
 
 namespace Engine
 {
-    SDLImage::SDLImage(const char *filename)
-    {
-        if (!initialized) {
-            // Currently we support only two types of image, JPG and PNG (in addition to BMP natively supported by SDL)
-            IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG);
-			
-            initialized = true;
-        }
+	SDLImage::SDLImage(const char *filename)
+	{
+		if (!initialized) {
+			// Currently we support only two types of image, JPG and PNG (in addition to BMP natively supported by SDL)
+			IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG);
 
-        this->surface = IMG_Load(filename);
+			initialized = true;
+		}
 
-        assert(surface, "Cannot find file %s", filename);
-    }
+		this->surface = IMG_Load(filename);
 
-    SDLImage::~SDLImage()
-    {
-    }
+		assert(surface, "Cannot find file %s", filename);
+	}
 
-    void SDLImage::DrawTo(SDL_Renderer *rend, const Rect &where)
-    {
-        // Simple caching mech to get around textuers being associated with Windows
-        if (rend != this->assoc_renderer) {
-            cached_texture = SDL_CreateTextureFromSurface(rend, this->surface);
-            assoc_renderer = rend;
-        }
+	SDLImage::~SDLImage()
+	{
+	}
 
-        // Currently we don't support source rects
-        SDL_RenderCopy(rend, this->cached_texture, NULL, where.ToSDL());
-    }
+	void SDLImage::DrawTo(SDL_Renderer *rend, const Rect &where)
+	{
+		// Simple caching mech to get around textuers being associated with Windows
+		if (rend != this->assoc_renderer) {
+			cached_texture = SDL_CreateTextureFromSurface(rend, this->surface);
+			assoc_renderer = rend;
+		}
 
-    const Vec2D *SDLImage::GetSize()
-    {
-        return new Vec2D(this->surface->w, this->surface->h);
-    }
+		// Currently we don't support source rects
+		SDL_RenderCopy(rend, this->cached_texture, NULL, where.ToSDL());
+	}
 
-    int SDLImage::GetWidth()
-    {
-        return this->surface->w;
-    }
+	const Vec2D *SDLImage::GetSize()
+	{
+		return new Vec2D(this->surface->w, this->surface->h);
+	}
 
-    int SDLImage::GetHeight()
-    {
-        return this->surface->h;
-    }
+	int SDLImage::GetWidth()
+	{
+		return this->surface->w;
+	}
 
-    bool SDLImage::initialized = false;
+	int SDLImage::GetHeight()
+	{
+		return this->surface->h;
+	}
+
+	bool SDLImage::initialized = false;
 }
