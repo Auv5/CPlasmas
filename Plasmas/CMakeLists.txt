@@ -27,3 +27,7 @@ target_link_libraries (${PROJECT_NAME} Engine)
 find_package (SDL2 REQUIRED)
 include_directories (${SDL2_INCLUDE_DIR})
 target_link_libraries (Plasmas ${SDL2_LIBRARY})
+
+find_package (SDL2_image REQUIRED)
+include_directories (${SDL2_image_INCLUDE_DIRS})
+target_link_libraries (Plasmas ${SDL2_image_LIBRARIES})
