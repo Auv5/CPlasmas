@@ -3,8 +3,6 @@
 #include "Graphics.h"
 #include "Component.h"
 
-#include "_Errors.h"
-
 namespace Engine
 {
 	SDLEventsSystem::SDLEventsSystem()

@@ -21,8 +21,6 @@ set (Engine_SRCS
 
 add_library (${PROJECT_NAME} STATIC ${Engine_SRCS})
 
-
-
 add_definitions(
   -g
   -std=c++11

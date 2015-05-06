@@ -1,7 +1,6 @@
 #include "_Errors.h"
 
 #include <iostream>
-#include <cstdlib>
 #include <cstdarg>
 
 // The maximum length of an (expanded) error message
